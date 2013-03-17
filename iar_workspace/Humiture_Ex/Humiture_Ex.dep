@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3405502336</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\source\LCD.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SHT11.pbi</file>
+      <file>$PROJ_DIR$\source\Humiture_Ex.c</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nlxd-1e16x01.r51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LCD.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\ioCC2530.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk_base.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbd</file>
+      <file>$PROJ_DIR$\source\SHT11.h</file>
+      <file>$PROJ_DIR$\source\SHT11.c</file>
+      <file>$PROJ_DIR$\source\LCD.c</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LCD.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SHT11.r51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbi</file>
+      <file>$TOOLKIT_DIR$\config\lnk51ew.xcl</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\source\Humiture_Ex.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 8 0 11 1 17 5 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 0 11 1 17 5 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 20 6 2</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\source\SHT11.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 11 8 1 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11 8 1 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\source\LCD.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 0 8 7 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0 8 7 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 21 9 19 15 16 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

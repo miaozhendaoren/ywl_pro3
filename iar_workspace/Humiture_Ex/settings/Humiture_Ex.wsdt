@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>Humiture_Ex/Debug</Project><Project>RF-test/RX</Project></CurrentConfigs><CurrentProj>Humiture_Ex</CurrentProj><OverviewSelected>1</OverviewSelected></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>247</Column0><Column1>99</Column1><Column2>27</Column2><Column3>14677020</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>915</ColumnWidth1><ColumnWidth2>244</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
+    </Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-16486-877</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>&lt;ws></ExpandedNode><ExpandedNode>&lt;ws>/Humiture_Ex</ExpandedNode><ExpandedNode>&lt;ws>/RF-test</ExpandedNode><ExpandedNode>&lt;ws>/RF-test/application</ExpandedNode><ExpandedNode>&lt;ws>/RF-test/basicrf</ExpandedNode><ExpandedNode>Humiture_Ex</ExpandedNode><ExpandedNode>Humiture_Ex/LCD_Mzlh04</ExpandedNode><ExpandedNode>Humiture_Ex/Output</ExpandedNode><ExpandedNode>Humiture_Ex/SHT11</ExpandedNode><ExpandedNode>RF-test</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-3105-14432</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\doc\&#x7B2C;&#x4e00;&#x6B21;&#x53D1;&#x6765;&#x7684;&#x8D44;&#x6599;\CC2530&#x76F8;&#x5173;&#x7A0B;&#x5e8F;\&#x70B9;&#x5BF9;&#x70B9;&#x901A;&#x4Fe1;\&#x70B9;&#x5BF9;&#x70B9;2530\source\apps\RF_text\app_ex_main.c</Filename><XPos>0</XPos><YPos>42</YPos><SelStart>1238</SelStart><SelEnd>1238</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-013894a0><key>iaridepm.enu1</key></Toolbar-013894a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>485</Bottom><Right>395</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>156250</sizeHorzCX><sizeHorzCY>275103</sizeHorzCY><sizeVertCX>310156</sizeVertCX><sizeVertCY>669876</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>198</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>200</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>275103</sizeHorzCY><sizeVertCX>156250</sizeVertCX><sizeVertCY>275103</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
