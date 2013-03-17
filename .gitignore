@@ -1,2 +1,6 @@
-﻿/Debug/
+﻿/iar_workspace/Humiture_Ex/Debug/
+/iar_workspace/point_to_point/IAR/RX/
+/iar_workspace/point_to_point/IAR/TX/
+!/doc/SHT10_datasheet.pdf
+!/doc/CC2530_user_guide_cn.pdf
 /doc/
