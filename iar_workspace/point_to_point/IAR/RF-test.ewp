@@ -2108,6 +2108,15 @@
     </file>
   </group>
   <group>
+    <name>sht11</name>
+    <file>
+      <name>$PROJ_DIR$\..\source\components\sht11\SHT11.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\components\sht11\SHT11.h</name>
+    </file>
+  </group>
+  <group>
     <name>utilities</name>
     <file>
       <name>$PROJ_DIR$\..\source\components\utils\util.c</name>
