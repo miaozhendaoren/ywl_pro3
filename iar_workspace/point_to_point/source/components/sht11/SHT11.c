@@ -8,12 +8,17 @@
  *           DATA                    P0.7
  *
  ******************************************************************************/
-
+#define SHT11
 /* 包含头文件 */
 /********************************************************************/
 #include "SHT11.h"  // CC2530的头文件，包含对CC2530的寄存器、中断向量等的定义
 /********************************************************************/
 
+
+unsigned char gf_isSht11DataReady  = 0; //全局变量sht11数据准备好？,1为准备好
+float gf_temp = 0.0;  //全部变量float 温度
+float gf_humi = 0.0;  //全局变量float 湿度
+float gf_dewPoint = 0.0; //全局变量float 露点
 
 /*********************************************************************
  * 函数名称：SHT11_IO_Init
@@ -346,6 +351,52 @@ float SHT11_CALCDewpoint(float h,float t)
   dew_point = (logEx - 0.66077) * 237.3/(0.66077 + 7.5 - logEx);
 
   return dew_point;
+}
+
+
+/**********************************************************************
+ * 函数名称：sht11MakeData()
+ * 功   能； sht11数据生成
+ * 入口参数：无
+ * 出口函数：无
+ * 返 回 值：无
+ *********************************************************************/
+void sht11MakeData(void)
+{
+    typedef union
+    { 
+      unsigned int i;
+      float f;
+    } value;
+  
+    value humi_val,temp_val;
+    float dew_point;
+    unsigned char error,checksum;
+    
+    if(gf_isSht11DataReady)
+      return;
+
+     error = 0;
+     error += SHT11_Measure((unsigned char*) &humi_val.i,&checksum,SHT11_HUMI); // 测量相对湿度
+     error += SHT11_Measure((unsigned char*) &temp_val.i,&checksum,SHT11_TEMP); // 测量温度    
+      /* 若SHT11测量错误 */
+      if(error != 0) 
+      {
+        SHT11_ConnectionReset();  // 通信复位                          
+      }
+      else
+      /* 若SHT11测量正常 */
+      {
+        /* 根据测量结果计算实际物理量值 */
+        humi_val.f = (float)humi_val.i;                         // 数据类型转换
+        temp_val.f = (float)temp_val.i;
+        SHT11_CALC(&humi_val.f,&temp_val.f);                    // 计算相对湿度和温度
+        dew_point = SHT11_CALCDewpoint(humi_val.f,temp_val.f);  // 计算露点
+        gf_temp = humi_val.f;
+        gf_humi = temp_val.f;
+        gf_dewPoint = dew_point;
+        gf_isSht11DataReady = 1;
+      }        
 }
 
 

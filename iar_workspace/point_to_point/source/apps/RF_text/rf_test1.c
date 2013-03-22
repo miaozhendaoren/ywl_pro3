@@ -108,7 +108,7 @@ void initRfTest(void)
 ******************************************************************************/
 
 void rf_test_main(void){
-
+#undef RX
    #ifdef RX
    {
                        
@@ -168,7 +168,8 @@ void contionuousMode(void)
 {
   
   uint8 res;// BOOL
- uint8 sendBuffer[5] ={1,2,3,4,5} ;//"Hello";BYTE  BYTE
+// uint8 sendBuffer[10] ={'1','2','3','4','5'} ;//"Hello";BYTE  BYTE
+ uint8 sendBuffer[]= "I\'m sensor 1.\n";
  if(halRfInit()==FAILED) {
       HAL_ASSERT(FALSE);
     }
@@ -203,7 +204,7 @@ void contionuousMode(void)
         int j,m;
         m=sizeof(sendBuffer);  
          halLedSet(1);
-         for(j=0;j<m;j++)
+         for(j=0;j<m-1;j++)
          { 
           U0DBUF =sendBuffer[j];
           while (!UTX0IF);
@@ -243,7 +244,7 @@ void contionuousMode(void)
 ******************************************************************************/
 void receiveMode(void)
 {
-  uint8 receiveBuffer[]={0};
+  uint8 receiveBuffer[10]={0};
   uint8  length;
   uint8  ress;
    //BYTE sender;
@@ -280,6 +281,9 @@ void receiveMode(void)
           ress = 0;
          }
          j=0;
+         U0DBUF = '\n';
+         while(!UTX0IF);
+         UTX0IF = 0;
         halMcuWaitMs(200);
         
       }
@@ -289,7 +293,6 @@ void receiveMode(void)
         //halLedClear(1);
        halMcuWaitMs(200);
       }
-
      
    }
     //while (!UTX0IF);
