@@ -243,7 +243,7 @@ void contionuousMode(void)
 ******************************************************************************/
 void receiveMode(void)
 {
-  uint8 receiveBuffer[]={0};
+  uint8 receiveBuffer[100]={0};
   uint8  length;
   uint8  ress;
    //BYTE sender;
