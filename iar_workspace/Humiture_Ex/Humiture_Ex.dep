@@ -6,67 +6,67 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\SHT11.r51</file>
-      <file>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</file>
-      <file>$PROJ_DIR$\source\SHT11.h</file>
-      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
-      <file>$PROJ_DIR$\source\LCD.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbd</file>
-      <file>$PROJ_DIR$\source\SHT11.c</file>
-      <file>$PROJ_DIR$\source\Humiture_Ex.c</file>
-      <file>$TOOLKIT_DIR$\config\lnk51ew.xcl</file>
-      <file>$TOOLKIT_DIR$\config\lnk_base.xcl</file>
-      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
       <file>$TOOLKIT_DIR$\inc\ioCC2530.h</file>
-      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nlxd-1e16x01.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
       <file>$PROJ_DIR$\Debug\Obj\SHT11.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\LCD.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.r51</file>
-      <file>$PROJ_DIR$\Debug\Obj\LCD.r51</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nlxd-1e16x01.r51</file>
+      <file>$TOOLKIT_DIR$\config\lnk_base.xcl</file>
       <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LCD.r51</file>
       <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$PROJ_DIR$\source\Humiture_Ex.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\SHT11.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Humiture_Ex.r51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\source\SHT11.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\LCD.pbi</file>
+      <file>$PROJ_DIR$\source\LCD.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk51ew.xcl</file>
+      <file>$PROJ_DIR$\source\SHT11.h</file>
       <file>$PROJ_DIR$\source\LCD.c</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</name>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 9 10 17 18 1 13</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>$PROJ_DIR$\Debug\Obj\Humiture_Ex.pbd</name>
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 0 15 14</file>
+          <file> 9 17 3</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\source\SHT11.c</name>
+      <name>$PROJ_DIR$\Debug\Exe\Humiture_Ex.d51</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 19 5 14 7 13 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\source\Humiture_Ex.c</name>
       <outputs>
         <tool>
           <name>ICC8051</name>
-          <file> 1</file>
+          <file> 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 14</file>
+          <file> 9</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC8051</name>
-          <file> 3 12 11 4</file>
+          <file> 0 18 20 2 15 8 6</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 3 12 11 4</file>
+          <file> 0 18 20 2 15 8 6</file>
         </tool>
       </inputs>
     </file>
@@ -75,30 +75,30 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 2</file>
+          <file> 10</file>
         </tool>
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\source\Humiture_Ex.c</name>
+      <name>$PROJ_DIR$\source\SHT11.c</name>
       <outputs>
         <tool>
           <name>ICC8051</name>
-          <file> 17</file>
+          <file> 13</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0</file>
+          <file> 3</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC8051</name>
-          <file> 12 5 3 11 4 20 19</file>
+          <file> 20 0 2 15</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 12 5 3 11 4 20 19</file>
+          <file> 20 0 2 15</file>
         </tool>
       </inputs>
     </file>
@@ -107,21 +107,21 @@
       <outputs>
         <tool>
           <name>ICC8051</name>
-          <file> 18</file>
+          <file> 7</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 15</file>
+          <file> 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC8051</name>
-          <file> 5 12 16 4</file>
+          <file> 18 0 11 15</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 5 12 16 4</file>
+          <file> 18 0 11 15</file>
         </tool>
       </inputs>
     </file>

@@ -20,6 +20,8 @@ Description:
 #include "basic_rf.h"
 #include "hal_types.h"
 #include "..\..\components\sht11\SHT11.h"
+#include <stdio.h>
+#include <string.h>
 
 // Application parameters
 #define RF_CHANNEL               0x0b      // 2.4 GHz RF channel
@@ -170,7 +172,9 @@ void contionuousMode(void)
   
   uint8 res;// BOOL
   uint8 sendBuffer[5] ={'1','2','3','4','5'} ;//"Hello";BYTE  BYTE
-  //
+  char ss[25];
+  uint8 i;
+  
  if(halRfInit()==FAILED) {
       HAL_ASSERT(FALSE);
     }
@@ -185,44 +189,58 @@ void contionuousMode(void)
        // gf_humi float 湿度
        // gf_dewPoint float 湿度
        
-      
-       
-       /* 将形成的协议包 通过无线发送给汇集器 */
-       halLedClear(1);
-       if(basicRfInit(&basicRfConfig)==FAILED)
-       {
-         HAL_ASSERT(FALSE);
-       }
-         // Keep Receiver off when not needed to save power
-        basicRfReceiveOff();
-        halLedSet(2);
-        res = basicRfSendPacket(remoteAddr,sendBuffer, sizeof(sendBuffer));
-         
-        halIntOff();
-        halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
-        
-        // interrupt enable
-        halIntOn();
-        basicRfReceiveOn();
-        halMcuWaitMs(200);
-  
-        if(res == TRUE)
+        for(i=0; i<4; i++)
         {
-            res =0;
-            int j,m;
+           if(i==0) sprintf(ss,(char *)"Temp - %5.1fC\n",gf_temp);
+           else if(i==1) sprintf(ss,(char *)"Humi - %5.1f%%\n",gf_humi);
+           else if(i==2) sprintf(ss,(char *)"Dew_p - %5.1fC\n",gf_dewPoint);
+           else if(i==3) sprintf(ss,"----------------\n");
+
+           ss[0] = '0';
+           ss[1] = '1';
+           ss[2] = '2';
+           ss[3] = '3';
+           ss[4] = '4';
+           ss[5] = '5';
+           ss[5] = '6';
+           ss[6] = '\0';           
+                
+           /* 将形成的协议包 通过无线发送给汇集器 */
+           halLedClear(1);
+           if(basicRfInit(&basicRfConfig)==FAILED)
+           {
+             HAL_ASSERT(FALSE);
+           }
+             // Keep Receiver off when not needed to save power
+            basicRfReceiveOff();
+            halLedSet(2);
+            res = basicRfSendPacket(remoteAddr,(uint8*)(&ss[0]),8/*strlen(ss)*/);
+             
+            halIntOff();
+            halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
             
-            m=sizeof(sendBuffer);  
-            halLedSet(1);
-            for(j=0;j<m-1;j++)
-            { 
-              U0DBUF =sendBuffer[j];
-              while (!UTX0IF);
-              UTX0IF = 0;
-            }
-            j=0;
+            // interrupt enable
+            halIntOn();
+            basicRfReceiveOn();
             halMcuWaitMs(200);
-        }//end if(res == TRUE)
-        
+      
+            if(res == SUCCESS)
+            {
+                res =0;
+                int j,m;
+                
+                m=sizeof(ss);  
+                halLedSet(1);
+                for(j=0;ss[j] != '\0';j++)
+                { 
+                  U0DBUF =ss[j];
+                  while (!UTX0IF);
+                  UTX0IF = 0;
+                }
+                j=0;
+                halMcuWaitMs(200);
+            }//end if(res == TRUE)                       
+        }        
         /* 将ready 写为0,进行下次采集 由sht11MakeData()完成*/
         gf_isSht11DataReady = 0;
         
