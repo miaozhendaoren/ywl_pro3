@@ -392,8 +392,8 @@ void sht11MakeData(void)
         temp_val.f = (float)temp_val.i;
         SHT11_CALC(&humi_val.f,&temp_val.f);                    // 计算相对湿度和温度
         dew_point = SHT11_CALCDewpoint(humi_val.f,temp_val.f);  // 计算露点
-        gf_temp = humi_val.f;
-        gf_humi = temp_val.f;
+        gf_humi = humi_val.f;
+        gf_temp = temp_val.f;
         gf_dewPoint = dew_point;
         gf_isSht11DataReady = 1;
       }        
