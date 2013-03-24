@@ -38,5 +38,5 @@ LogFile=_ ""
 Bp0=_ "STD_CODE" "Code:0xBE45" 1 0 0 0 "" 0 ""
 Count=1
 [ChipconEmu]
-Stop timers on halt=1
+Stop timers on halt=0
 Leave target running=1

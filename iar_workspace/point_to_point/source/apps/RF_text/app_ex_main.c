@@ -112,7 +112,7 @@ void main(void)
    
    halBoardInit();
     
-   //rf_test_main();
+   rf_test_main();
         
    while(1){
      

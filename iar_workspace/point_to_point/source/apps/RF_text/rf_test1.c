@@ -19,6 +19,7 @@ Description:
 #include "hal_rf.h"
 #include "basic_rf.h"
 #include "hal_types.h"
+#include "..\..\components\sht11\SHT11.h"
 
 // Application parameters
 #define RF_CHANNEL               0x0b      // 2.4 GHz RF channel
@@ -168,63 +169,65 @@ void contionuousMode(void)
 {
   
   uint8 res;// BOOL
-// uint8 sendBuffer[10] ={'1','2','3','4','5'} ;//"Hello";BYTE  BYTE
- uint8 sendBuffer[]= "I\'m sensor 1.\n";
+  uint8 sendBuffer[5] ={'1','2','3','4','5'} ;//"Hello";BYTE  BYTE
+  //
  if(halRfInit()==FAILED) {
       HAL_ASSERT(FALSE);
     }
   while(1)
-  
    {
-     
-     halLedClear(1);
-      if(basicRfInit(&basicRfConfig)==FAILED)
-      {
-      HAL_ASSERT(FALSE);
-      }
-       // Keep Receiver off when not needed to save power
-       basicRfReceiveOff();
-       halLedSet(2);
-       res = basicRfSendPacket(remoteAddr,sendBuffer, sizeof(sendBuffer));
+     /* 传感器 模块,采集数据 */
+     sht11MakeData();         
+     if(gf_isSht11DataReady)
+     {
+       /* 将传感器采集到的数据 形成应用协议包 */
+       // gf_temp float 温度
+       // gf_humi float 湿度
+       // gf_dewPoint float 湿度
        
-       halIntOff();
-       halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
-            // interrupt enable
-       halIntOn();
-       basicRfReceiveOn();
-      halMcuWaitMs(200);
-      // U0DBUF = res;
-      // while (!UTX0IF);
-      // UTX0IF = 0;
-    //  YLED = LED_OFF;
-      //halWait(200);
-      if(res == TRUE)
-      {
-        res =0;
-        int j,m;
-        m=sizeof(sendBuffer);  
-         halLedSet(1);
-         for(j=0;j<m-1;j++)
-         { 
-          U0DBUF =sendBuffer[j];
-          while (!UTX0IF);
-          UTX0IF = 0;
-         //0X01;        
-         }
-         j=0;
-   halMcuWaitMs(200);
-      }
-      else
-      {
       
-       //halLedClear(2); 
-      halMcuWaitMs(200);
-      
-      }
-   }
+       
+       /* 将形成的协议包 通过无线发送给汇集器 */
+       halLedClear(1);
+       if(basicRfInit(&basicRfConfig)==FAILED)
+       {
+         HAL_ASSERT(FALSE);
+       }
+         // Keep Receiver off when not needed to save power
+        basicRfReceiveOff();
+        halLedSet(2);
+        res = basicRfSendPacket(remoteAddr,sendBuffer, sizeof(sendBuffer));
+         
+        halIntOff();
+        halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
+        
+        // interrupt enable
+        halIntOn();
+        basicRfReceiveOn();
+        halMcuWaitMs(200);
   
- 
-
+        if(res == TRUE)
+        {
+            res =0;
+            int j,m;
+            
+            m=sizeof(sendBuffer);  
+            halLedSet(1);
+            for(j=0;j<m-1;j++)
+            { 
+              U0DBUF =sendBuffer[j];
+              while (!UTX0IF);
+              UTX0IF = 0;
+            }
+            j=0;
+            halMcuWaitMs(200);
+        }//end if(res == TRUE)
+        
+        /* 将ready 写为0,进行下次采集 由sht11MakeData()完成*/
+        gf_isSht11DataReady = 0;
+        
+     }// end if(gf_isSht11DataReady)
+   }//end while(1){}
 }
 
 
