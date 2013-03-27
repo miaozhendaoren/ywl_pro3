@@ -5,7 +5,7 @@
     
     
     
-  <CurrentConfigs><Project>Humiture_Ex/Debug</Project><Project>RF-test/RX</Project></CurrentConfigs><CurrentProj>RF-test</CurrentProj><OverviewSelected>1</OverviewSelected></ConfigDictionary>
+  <CurrentConfigs><Project>RF-test/RX</Project><Project>Humiture_Ex/Debug</Project></CurrentConfigs><CurrentProj>RF-test</CurrentProj><OverviewSelected>1</OverviewSelected></ConfigDictionary>
   <Desktop>
     <Static>
       <Workspace>
@@ -22,11 +22,11 @@
         
         
       <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>915</ColumnWidth1><ColumnWidth2>244</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
-    <Debug-Log/></Static>
+    <Debug-Log/><TerminalIO/></Static>
     <Windows>
       
       
-    <Wnd2>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-16958-11813</Identity>
@@ -38,7 +38,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd3>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-9472-12567</Identity>
@@ -48,20 +48,20 @@
           </Tab>
         <Tab><Identity>TabID-14470-3293</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>1</SelectedTab></Wnd3></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\Humiture_Ex\source\LCD.c</Filename><XPos>0</XPos><YPos>199</YPos><SelStart>6215</SelStart><SelEnd>6215</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\point_to_point\source\apps\RF_text\rf_test1.c</Filename><XPos>0</XPos><YPos>192</YPos><SelStart>5042</SelStart><SelEnd>5042</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\point_to_point\source\apps\RF_text\rf_test1.c</Filename><XPos>0</XPos><YPos>257</YPos><SelStart>6016</SelStart><SelEnd>6016</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\point_to_point\source\apps\RF_text\app_ex_main.c</Filename><XPos>0</XPos><YPos>47</YPos><SelStart>1297</SelStart><SelEnd>1297</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-013894a0><key>iaridepm.enu1</key></Toolbar-013894a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>488</Bottom><Right>306</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>201</yscreen><sizeHorzCX>156250</sizeHorzCX><sizeHorzCY>274590</sizeHorzCY><sizeVertCX>240625</sizeVertCX><sizeVertCY>669399</sizeVertCY></Rect></Wnd2></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>199</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>201</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>274590</sizeHorzCY><sizeVertCX>156250</sizeVertCX><sizeVertCY>274590</sizeVertCY></Rect></Wnd3></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-013894a0><key>iaridepm.enu1</key></Toolbar-013894a0></Sizes></Row0><Row1><Sizes/></Row1></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>488</Bottom><Right>306</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>201</yscreen><sizeHorzCX>156250</sizeHorzCX><sizeHorzCY>274590</sizeHorzCY><sizeVertCX>240625</sizeVertCX><sizeVertCY>669399</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>199</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>201</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>274590</sizeHorzCY><sizeVertCX>156250</sizeVertCX><sizeVertCY>274590</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

@@ -254,47 +254,31 @@ void receiveMode(void)
    {
     
      halLedClear(2);
-       if(basicRfInit(&basicRfConfig)==FAILED)
+     if(basicRfInit(&basicRfConfig)==FAILED)
+     {
+     HAL_ASSERT(FALSE);
+     }
+     
+     basicRfReceiveOn();
+     halLedSet(1);
+     while(!basicRfPacketIsReady());
+     ress = basicRfReceive(receiveBuffer, length,NULL);
+      
+     if(ress > 0)
+     {
+       int j;
+       halLedSet(2);
+       for(j=0;j<ress;j++)
        {
-       HAL_ASSERT(FALSE);
-       }
-       
-      basicRfReceiveOn();
-       halLedSet(1);
-      while(!basicRfPacketIsReady());
-       ress = basicRfReceive(receiveBuffer, length,NULL);
-      //if(res>0) 
-     
-     
-     
-
-      if(ress > 0)
-      {
-        int j;
-        halLedSet(2);
-         for(j=0;j<5;j++)
-         {
-          U0DBUF =receiveBuffer[j] ;//0X02;
-          while (!UTX0IF);
-          UTX0IF = 0;
-          ress = 0;
-         }
-         j=0;
-        halMcuWaitMs(200);
-        
-      }
-      else
-      {  
-        
-        //halLedClear(1);
+         U0DBUF =receiveBuffer[j] ;//0X02;
+         while (!UTX0IF);
+         UTX0IF = 0;
+       }         
+       ress = 0;        
+     }else{          
        halMcuWaitMs(200);
-      }
-
-     
+     }     
    }
-    //while (!UTX0IF);
-   //UTX0IF = 0;
-   //U0DBUF = &receiveBuffer;
 }
 
 
