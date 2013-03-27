@@ -260,7 +260,7 @@ void receiveMode(void)
      }
      
      basicRfReceiveOn();
-     halLedSet(1);
+     
      while(!basicRfPacketIsReady());
      ress = basicRfReceive(receiveBuffer, length,NULL);
       
@@ -274,7 +274,8 @@ void receiveMode(void)
          while (!UTX0IF);
          UTX0IF = 0;
        }         
-       ress = 0;        
+       ress = 0;    
+       halMcuWaitMs(50);
      }else{          
        halMcuWaitMs(200);
      }     
