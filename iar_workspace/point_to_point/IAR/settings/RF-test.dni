@@ -27,6 +27,8 @@ ActionState=1
 [TraceHelper]
 Enabled=0
 ShowSource=1
+[BreakpointUsageDialog]
+Placement=_ 422 250 859 521
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

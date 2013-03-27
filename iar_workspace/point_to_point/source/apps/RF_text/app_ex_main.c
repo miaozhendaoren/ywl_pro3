@@ -115,7 +115,7 @@ void main(void)
    rf_test_main();
         
    while(1){
-     
+#if 0     
      sht11MakeData();         
      if(gf_isSht11DataReady)
      {
@@ -139,6 +139,7 @@ void main(void)
          halMcuWaitMs(2000);     
        gf_isSht11DataReady = 0;  
      }
+#endif     
    }
       
 }

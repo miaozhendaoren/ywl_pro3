@@ -139,7 +139,7 @@ void rf_test_main(void){
    			remoteAddr = ADDRESS_0;
                         basicRfConfig.channel = RF_CHANNEL;
                         basicRfConfig.panId = PAN_ID;  
-                        basicRfConfig.ackRequest =TRUE ;//;FALSE
+                        basicRfConfig.ackRequest =FALSE ;//;FALSE
                         #ifdef SECURITY_CCM
                         basicRfConfig.securityKey = key;
                         #endif
@@ -195,16 +195,7 @@ void contionuousMode(void)
            else if(i==1) sprintf(ss,(char *)"Humi - %5.1f%%\n",gf_humi);
            else if(i==2) sprintf(ss,(char *)"Dew_p - %5.1fC\n",gf_dewPoint);
            else if(i==3) sprintf(ss,"----------------\n");
-
-           ss[0] = '0';
-           ss[1] = '1';
-           ss[2] = '2';
-           ss[3] = '3';
-           ss[4] = '4';
-           ss[5] = '5';
-           ss[5] = '6';
-           ss[6] = '\0';           
-                
+           
            /* 将形成的协议包 通过无线发送给汇集器 */
            halLedClear(1);
            if(basicRfInit(&basicRfConfig)==FAILED)
@@ -214,7 +205,7 @@ void contionuousMode(void)
              // Keep Receiver off when not needed to save power
             basicRfReceiveOff();
             halLedSet(2);
-            res = basicRfSendPacket(remoteAddr,(uint8*)(&ss[0]),8/*strlen(ss)*/);
+            res = basicRfSendPacket(remoteAddr,(uint8*)(&ss[0]),strlen(ss));
              
             halIntOff();
             halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
