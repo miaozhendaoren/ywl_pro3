@@ -22,7 +22,7 @@
         
         
       <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>915</ColumnWidth1><ColumnWidth2>244</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
-    </Static>
+    <Debug-Log/></Static>
     <Windows>
       
       
@@ -46,15 +46,15 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
-        </Tabs>
+        <Tab><Identity>TabID-14470-3293</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd3></Windows>
+      <SelectedTab>1</SelectedTab></Wnd3></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\Humiture_Ex\source\LCD.c</Filename><XPos>0</XPos><YPos>199</YPos><SelStart>6215</SelStart><SelEnd>6215</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\point_to_point\source\apps\RF_text\rf_test1.c</Filename><XPos>0</XPos><YPos>234</YPos><SelStart>5522</SelStart><SelEnd>5522</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\Humiture_Ex\source\LCD.c</Filename><XPos>0</XPos><YPos>199</YPos><SelStart>6215</SelStart><SelEnd>6215</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>G:\11-project\ywl_pro3\iar_workspace\point_to_point\source\apps\RF_text\rf_test1.c</Filename><XPos>0</XPos><YPos>192</YPos><SelStart>5042</SelStart><SelEnd>5042</SelEnd></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
