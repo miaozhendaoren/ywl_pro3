@@ -167,13 +167,13 @@ void rf_test_main(void){
 * @return void
 *
 ******************************************************************************/
-void contionuousMode(void)
+void contionuousMode(void)  
 {
-  
-  uint8 res;// BOOL
-  uint8 sendBuffer[5] ={'1','2','3','4','5'} ;//"Hello";BYTE  BYTE
-  char ss[25];
-  uint8 i;
+                        //0     1     2     3     4     5     6     7     8     9   10    11
+  uint8 res;// BOOL     //Head 类型  ID0  ID1  温度0 温度1 温度2 湿度0 湿度1 露点0 露点1 报尾
+  uint8 sendBuffer[12] ={0x01, 0x10, 0x00,0x01,0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00} ;
+  uint8 i8;
+  uint16 i16;
   
  if(halRfInit()==FAILED) {
       HAL_ASSERT(FALSE);
@@ -185,56 +185,62 @@ void contionuousMode(void)
      if(gf_isSht11DataReady)
      {
        /* 将传感器采集到的数据 形成应用协议包 */
-       // gf_temp float 温度
-       // gf_humi float 湿度
-       // gf_dewPoint float 湿度
+       // gf_temp     float       温度  2位整数 1位小数
+       // gf_humi     float       湿度  2位整数  无小数
+       // gf_dewPoint float       露点  2位整数  无小数
        
-        for(i=0; i<4; i++)
-        {
-           if(i==0) sprintf(ss,(char *)"Temp - %5.1fC\n",gf_temp);
-           else if(i==1) sprintf(ss,(char *)"Humi - %5.1f%%\n",gf_humi);
-           else if(i==2) sprintf(ss,(char *)"Dew_p - %5.1fC\n",gf_dewPoint);
-           else if(i==3) sprintf(ss,"----------------\n");
+         gf_temp = gf_temp * 10;    //温度扩大10倍
+         i16 = (uint16)gf_temp;
+         sendBuffer[4] = 0x00 + (i16/100);    //十位
+         sendBuffer[5] = 0x00 + (i16%100)/10; //个位
+         sendBuffer[6] = 0x00 + (i16%10);     //小数位
+         
+         i8 = (uint8)gf_humi;
+         sendBuffer[7] = 0x00 + (i8/10);    //十位
+         sendBuffer[8] = 0x00 + (i8%10);    //个位
+         
+         i8 = (uint8)gf_dewPoint;         
+         sendBuffer[9] = 0x00 + (i8/10);   //十位
+         sendBuffer[10] = 0x00 + (i8%10);   //个位
+         
+         /* 将形成的协议包 通过无线发送给汇集器 */
+         halLedClear(1);
+         if(basicRfInit(&basicRfConfig)==FAILED)
+         {
+           HAL_ASSERT(FALSE);
+         }
+           // Keep Receiver off when not needed to save power
+          basicRfReceiveOff();
+          halLedSet(2);
+          res = basicRfSendPacket(remoteAddr,sendBuffer,sizeof(sendBuffer));
            
-           /* 将形成的协议包 通过无线发送给汇集器 */
-           halLedClear(1);
-           if(basicRfInit(&basicRfConfig)==FAILED)
-           {
-             HAL_ASSERT(FALSE);
-           }
-             // Keep Receiver off when not needed to save power
-            basicRfReceiveOff();
-            halLedSet(2);
-            res = basicRfSendPacket(remoteAddr,(uint8*)(&ss[0]),strlen(ss));
-             
-            halIntOff();
-            halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
-            
-            // interrupt enable
-            halIntOn();
-            basicRfReceiveOn();
-            halMcuWaitMs(200);
-      
-            if(res == SUCCESS)
-            {
-                res =0;
-                int j,m;
-                
-                m=sizeof(ss);  
-                halLedSet(1);
-                for(j=0;ss[j] != '\0';j++)
-                { 
-                  U0DBUF =ss[j];
-                  while (!UTX0IF);
-                  UTX0IF = 0;
-                }
-                j=0;
-                halMcuWaitMs(200);
-            }//end if(res == TRUE)                       
-        }        
-        /* 将ready 写为0,进行下次采集 由sht11MakeData()完成*/
-        gf_isSht11DataReady = 0;
-        
+          halIntOff();
+          halMcuSetLowPowerMode(HAL_MCU_LPM_3); // Will turn on global
+          
+          // interrupt enable
+          halIntOn();
+          basicRfReceiveOn();
+          halMcuWaitMs(200);
+    
+          if(res == SUCCESS)
+          {
+              res =0;
+              int j,m;
+              
+              m=sizeof(sendBuffer);  
+              halLedSet(1);
+              for(j=0;j<m;j++)
+              { 
+                U0DBUF =sendBuffer[j];
+                while (!UTX0IF);
+                UTX0IF = 0;
+              }
+              j=0;
+              halMcuWaitMs(200);
+          }//end if(res == TRUE)                       
+
+          /* 将ready 写为0,进行下次采集 由sht11MakeData()完成*/
+          gf_isSht11DataReady = 0;        
      }// end if(gf_isSht11DataReady)
    }//end while(1){}
 }
